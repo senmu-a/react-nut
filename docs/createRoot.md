@@ -29,7 +29,7 @@
 
 1. `containerInfo` -- 根节点元素，就是我们用来渲染 React 组件的根容器
 2. `tag` -- 默认传数值 1，React 中变量名为 `ConcurrentRoot`
-3. `hydrationCallbacks` -- 默认传 `null`，暂时不做分析
+3. `hydrationCallbacks` -- 默认传 `null`，用户自传的渲染回调
 4. `isStrictMode` -- 默认传 `false`，通过查阅官方文档得知此为严格模式，可以帮助我们开发高质量组件，并且只会在开发环境下生效，不影响生产构建。
 5. `concurrentUpdatesByDefaultOverride` 仅供内部实验，这里不做分析。
 6. `identifierPrefix` -- 默认传空字符，用于由 `React.useId` 生成的 ID 的前缀。在同一页面上使用多个根容器时，有助于避免冲突并且必须与服务器上使用的前缀相同。
@@ -53,4 +53,4 @@ uninitializedFiber.stateNode = root;
 
 ### listenToAllSupportedEvents
 
-> 监听所有支持的事件（篇幅过长，暂时不做分析了）
+> 监听所有支持的事件到跟节点上
