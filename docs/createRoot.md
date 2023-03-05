@@ -16,8 +16,8 @@
 ### 内部
 
 1. createContainer ---- 创建“根容器”
-2. markContainerAsRoot ---- 标记/存储根容器
-3. 初始化 dispatch
+2. markContainerAsRoot ---- 标记/存储根容器，将根节点的 FiberNode 存入根节点上
+3. 初始化 dispatch，`ReactDOMClientDispatcher`
 4. listenToAllSupportedEvents ---- 监听/注册所有支持的事件
 5. 返回 ReactDOMRoot ---- 返回 ReactDOMRoot 实例
 

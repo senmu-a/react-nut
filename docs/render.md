@@ -22,5 +22,18 @@
 6. `enqueueUpdate` 更新 `root` 
 7. `scheduleUpdateOnFiber` 加入任务调度
 
-此时我们需要剖析下 `Scheduler` 看看内部到底做了什么。
+### performConcurrentWorkOnRoot
+
+`shouldTimeSlice ? renderRootConcurrent : renderRootSync` 渲染组件
+
+完成渲染，在这之后就是 commit 和 release 阶段，这两个阶段会将 VDom 渲染为 DOM
+
+1. `commitMutationEffects`
+
+2. `commitLayoutEffects`
+
+3. `requestPaint` 在 commitLayout 之后告诉调度器浏览器有机会绘制了
+
+4. `flushSyncCallbacks` 在绘制完成后 flush 所有的 callback
+
 
