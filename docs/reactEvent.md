@@ -6,13 +6,15 @@
 
 众所周知，React 自定义了一套事件系统，那它内部到底做了什么呢？下面我们将从事件的监听、事件触发的角度出发看看，React 内部对“事件”到底做了什么。
 
-1. 初始化，在 `creatRoot` 时对于根容器/节点（需要注意 `selectionchange` 事件是绑定到 document 上的）进行事件监听以及初始化，具体是使用 `listenToAllSupportedEvents()` 方法。
+1. 将事件进行分类，并注册所有事件到 `allNativeEvents` 变量
 
-2. 事件触发，下图是事件触发的流程图
+2. 初始化，在 `creatRoot` 时对于根容器/节点（需要注意 `selectionchange` 事件是绑定到 document 上的）进行事件监听，具体是使用 `listenToAllSupportedEvents()` 方法。
+
+3. 事件触发，下图是事件触发的流程图
 
 ![reactEvent](../public/img/reactEvent.png)
 
-3. 批量更新，`batchUpdates()`，将事件回调加入批量更新队列
+4. 批量更新，`batchUpdates()`，将事件回调加入批量更新队列
 
 ### listenToAllSupportedEvents
 
